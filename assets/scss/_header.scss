@@ -1,0 +1,199 @@
+// ============== HEADER  ==============
+.header {
+    width: 100%;
+    height: 100vh;
+    color: $light-clr;
+    background: rgba(0, 0, 0, .55);
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background: url(../images/hero_bg.jpg)center center/cover no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+// ============== nav ==============
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__list {
+        display: flex;
+    }
+    &__item {
+        padding: 4rem 2.5rem;
+    }
+    &__link {
+        font-weight: 500;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+        position: relative;
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background: $light-clr;
+            border-bottom: 1px solid $btn-clr;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0);
+            transition: all .3s ease-in-out;
+        }
+        &:hover {
+            &::after {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+    &__toggle{
+        display: none;
+        margin: 1.55rem 0;
+        button{
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background:none;
+            svg{
+                fill: $light-clr;
+            }
+        }
+    }
+}
+// ============== hero ==============
+.hero {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &__title {
+        font-family: Gelasio;
+        font-weight: bold;
+        font-size: 6rem;
+        line-height: 120%;
+        color: $light-clr;
+    }
+    &__description {
+        width: 460px;
+        padding: 30px 0 40px;
+        line-height: 160%;
+        color: $light-clr;
+        opacity: 0.6;
+    }
+}
+
+// additional clacc to shows navbar on scroll
+.stiky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: rgba($navbar-clr, 0.95);
+    height: 100px;
+    // overflow: hidden;
+    box-shadow: 0px 5px 15px -5px rgba($navbar-clr, 0.6);
+}
+
+//media queries for HEADER
+
+@media screen and (max-width:992px){
+    .hero{
+        &__title{
+            font-size: 5.5rem;
+        }
+    }
+
+}
+
+@media screen and (max-width:850px){
+
+    .nav{
+        .btn{
+            padding: 0.4rem 2rem;
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    .navbar{
+        background: $navbar-clr;
+        height: 80px;
+
+    }
+    .nav{
+        position: relative;
+        .btn{
+            display: none;
+        }
+        &__list {
+            display: none;
+        }
+        &__item {
+            padding: 3.5rem 2.5rem;
+        }
+        &__toggle{
+            display: block;
+        }
+    }
+    .hero{
+        &__title{
+            font-size: 4.5rem;
+        }
+        &__description{
+            width: 400px;
+            padding: 20px 0 25px;
+        }
+        .btn--hero{
+            padding: 1.5rem 3.8rem;
+        }
+    }
+}
+
+@media screen and (max-width:576px){
+    .nav{
+        &__item{
+            padding: 2.5rem;
+        }
+    }
+    .hero{
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+
+        &__title{
+            font-size: 3.5rem;
+            line-height: 1.35;
+        }
+
+        &__description{
+            width: 300px;
+            padding: 15px 0 20px;
+            margin: 0 auto;
+        }
+    }
+}
+
+//additional class to show nav__list
+.show{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
+    padding-top: 3rem;
+    background: rgba($navbar-clr, .8);
+    position: absolute;
+    top:100%;
+    left: -30px;
+    right: -30px;
+    z-index: 1;
+}

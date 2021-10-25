@@ -1,0 +1,112 @@
+// ============== FOOTER  ==============
+.footer {
+    height: auto;
+    padding: 7.5rem 0;
+    background: $footer-clr;
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 2fr;
+        grid-gap: 2rem;
+        justify-content: space-between;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        &--form {
+            margin-left: auto;
+            form {
+                legend {
+                    font-weight: 500;
+                    font-size: 2rem;
+                    line-height: 1.5;
+                    letter-spacing: 0.06em;
+                    text-transform: uppercase;
+                    margin-bottom: 40px;
+                }
+                input {
+                    width: 195px;
+                    padding: 10px 20px;
+                    margin-right: 25px;
+                    margin-bottom: 1rem;
+                    font-family: inherit;
+                    font-size: 1.6rem;
+                    line-height: 1.5;
+                    letter-spacing: 0.06em;
+                    border-radius: 5px;
+                    outline: none;
+                    border: 1px solid rgba(0, 0, 0, .30);
+                    &:focus {
+                        outline: none;
+                        border: 2px solid $btn-clr;
+                    }
+                }
+            }
+        }
+    }
+    &__contact-title,
+    &__email {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-size: 1.6rem;
+        letter-spacing: 0.06em;
+    }
+    &__email {
+        margin-top: 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__social {
+        width: 160px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+    &__social-link {
+        transition: .2s linear;
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+    &__link {
+        margin: 10px;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        letter-spacing: 0.06em;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+//media queries for FOOTER
+
+@media screen and (max-width:768px) {
+    .footer{
+        &__content{
+            grid-template-columns: 1fr 1fr;
+        }
+        &__item{
+            &--form{
+                margin: 0;
+                form{
+                    legend{
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:576px) {
+    .footer{
+        &__content{
+            grid-template-columns: 1fr;
+        }
+
+
+    }
+}
